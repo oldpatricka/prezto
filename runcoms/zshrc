@@ -11,3 +11,31 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+setopt interactivecomments
+
+# Setup Prompt
+autoload -Uz promptinit
+promptinit
+prompt oldpatricka
+
+# Setup editor
+export EDITOR=vim
+export VISUAL=vim
+
+# Setup Aliases
+alias cd..="cd .."
+alias chomp="PERL -pe 'chomp'"
+alias git='nocorrect hub'
+alias zreload='source ~/.zshrc'
+alias history='history 0' # bash-style history
+alias startrabbitandcouch='couchdb -b && rabbitmq-server -detached'
+alias stoprabbitmqandchouch='rabbitmqctl stop ; couchdb -d'
+
+# Setup PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:~/bin:~/src/enstratius/sandbox-meta/bin/
+
+# Setup Virtualenv
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Setup rbenv
+#eval "$(rbenv init -)"
