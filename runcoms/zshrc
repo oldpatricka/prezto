@@ -32,7 +32,7 @@ alias history='history 0' # bash-style history
 alias xmlpretty='xmllint --format -'
 
 # Setup PATH
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:~/bin:~/src/enstratius/sandbox-meta/bin:/Users/patricka/.rbenv/versions/2.1.0/bin:/Users/patricka/.gem/ruby/2.0.0/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:~/bin:~/src/enstratius/sandbox-meta/bin:/Users/patricka/.rbenv/versions/2.1.0/bin:/Users/patricka/.gem/ruby/2.0.0/bin:~/src/enstratius/sandbox-fe-dev/bin
 
 # Setup Virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
@@ -48,3 +48,8 @@ export MAVEN_OPTS="-Xms256m -XX:MaxPermSize=1024m -Xmx2048m -Djava.awt.headless=
 export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ec2/pk-*.pem | /usr/bin/head -1)"
 export EC2_CERT="$(/bin/ls "$HOME"/.ec2/cert-*.pem | /usr/bin/head -1)"
 export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.12.0/libexec"
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+export JAVA_HOME="$(jenv javahome)"
+eval $(docker-machine env 2>/dev/null)
+export GOPATH=$HOME
